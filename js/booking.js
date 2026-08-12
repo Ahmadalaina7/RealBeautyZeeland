@@ -124,7 +124,8 @@
       s.classList.toggle("is-active", n === state.step);
       s.classList.toggle("is-done", n < state.step);
       s.disabled = !canReach(n);
-      s.setAttribute("aria-current", n === state.step ? "step" : "false");
+      if (n === state.step) s.setAttribute("aria-current", "step");
+      else s.removeAttribute("aria-current");
     });
   };
 
