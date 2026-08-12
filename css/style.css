@@ -1117,8 +1117,12 @@ h1, h2, h3, .heading {
 }
 
 .booking-steps li {
-  width: 28px;
-  height: 28px;
+  list-style: none;
+}
+
+.booking-steps button {
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 1px solid var(--line);
   display: grid;
@@ -1126,18 +1130,32 @@ h1, h2, h3, .heading {
   font-size: 12px;
   color: var(--dust-deep);
   font-family: var(--serif);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
 }
 
-.booking-steps li.is-active {
+.booking-steps button:hover:not(:disabled) {
+  border-color: var(--dust);
+  color: var(--navy);
+  transform: translateY(-1px);
+}
+
+.booking-steps button.is-active {
   background: var(--dust);
   border-color: var(--dust);
   color: #fff;
 }
 
-.booking-steps li.is-done {
+.booking-steps button.is-done {
   background: rgba(124, 151, 163, 0.18);
   border-color: var(--dust);
   color: var(--navy);
+}
+
+.booking-steps button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
 }
 
 .booking-top h2 {

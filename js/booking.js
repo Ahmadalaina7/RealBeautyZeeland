@@ -110,14 +110,29 @@
   const fmtDate = (d) =>
     d.toLocaleDateString("nl-NL", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
 
-  const setStep = (step) => {
-    state.step = step;
-    el.title.textContent = titles[step];
+  const canReach = (step) => {
+    if (step === 1) return true;
+    if (step === 2) return !!state.service;
+    if (step === 3) return !!state.service && !!state.date;
+    if (step === 4) return !!state.service && !!state.date && !!state.time;
+    return false;
+  };
+
+  const updateStepButtons = () => {
     el.steps.forEach((s) => {
       const n = Number(s.dataset.bookingStepIndicator);
-      s.classList.toggle("is-active", n === step);
-      s.classList.toggle("is-done", n < step);
+      s.classList.toggle("is-active", n === state.step);
+      s.classList.toggle("is-done", n < state.step);
+      s.disabled = !canReach(n);
+      s.setAttribute("aria-current", n === state.step ? "step" : "false");
     });
+  };
+
+  const setStep = (step) => {
+    if (!canReach(step)) return;
+    state.step = step;
+    el.title.textContent = titles[step];
+    updateStepButtons();
     el.panels.forEach((p) => {
       p.hidden = Number(p.dataset.bookingPanel) !== step;
     });
@@ -254,6 +269,7 @@
     state.time = null;
     renderList();
     el.next.disabled = !canNext();
+    updateStepButtons();
   });
 
   root.querySelector("[data-cal-prev]")?.addEventListener("click", () => {
@@ -274,6 +290,7 @@
     state.time = null;
     renderCalendar();
     el.next.disabled = !canNext();
+    updateStepButtons();
   });
 
   el.times.addEventListener("click", (e) => {
@@ -282,6 +299,15 @@
     state.time = btn.dataset.time;
     renderTimes();
     el.next.disabled = !canNext();
+    updateStepButtons();
+  });
+
+  el.steps.forEach((s) => {
+    s.addEventListener("click", () => {
+      const n = Number(s.dataset.bookingStepIndicator);
+      if (!canReach(n) || n === state.step) return;
+      setStep(n);
+    });
   });
 
   el.back.addEventListener("click", () => setStep(Math.max(1, state.step - 1)));
