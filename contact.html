@@ -65,7 +65,7 @@
       <div class="contact-details reveal">
         <h2>Afspraak maken</h2>
         <div class="ornament left" aria-hidden="true"><span></span><i></i><span></span></div>
-        <p>Bel, stuur een WhatsApp of vul het formulier in. Je ontvangt zo snel mogelijk een bevestiging. Inzendingen gaan naar realbeautyzeeland@gmail.com.</p>
+        <p>Kies je behandeling, datum en tijd — of bel / WhatsApp ons. Je ontvangt zo snel mogelijk een bevestiging.</p>
         <ul class="contact-list">
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v2a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h2a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L7.1 9.5a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.4c.8.3 1.7.5 2.6.6A2 2 0 0 1 22 16.9z"/></svg>
@@ -87,56 +87,80 @@
         <iframe class="map-embed" title="Kaart Real Beauty Zeeland Vlissingen" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Rosenburglaan%201%2C%204385%20JE%20Vlissingen&z=16&output=embed"></iframe>
       </div>
 
-      <div class="form-card reveal d2" id="afspraak">
-        <h2>AFSPRAAKFORMULIER</h2>
-        <div class="ornament left" aria-hidden="true"><span></span><i></i><span></span></div>
-        <form class="js-contact-form" action="https://formsubmit.co/realbeautyzeeland@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="Nieuwe afspraakaanvraag — Real Beauty Zeeland">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="">
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-          <div class="form-row">
-            <div class="field">
-              <label for="naam">Naam</label>
-              <input id="naam" name="naam" type="text" required autocomplete="name">
-            </div>
-            <div class="field">
-              <label for="email">E-mail</label>
-              <input id="email" name="email" type="email" required autocomplete="email">
-            </div>
+      <div class="booking-widget reveal d2" id="afspraak" data-booking>
+        <div class="booking-top">
+          <ol class="booking-steps" aria-label="Stappen">
+            <li data-booking-step-indicator="1">1</li>
+            <li data-booking-step-indicator="2">2</li>
+            <li data-booking-step-indicator="3">3</li>
+            <li data-booking-step-indicator="4">4</li>
+          </ol>
+          <h2 data-booking-title>Kies behandeling</h2>
+          <p class="booking-note">Boek tot 2 maanden vooruit. Openingstijden: ma–vr 09:30–17:30, za 10:00–15:00.</p>
+        </div>
+
+        <div class="booking-panel" data-booking-panel="1">
+          <div class="booking-cats" data-booking-cats></div>
+          <div class="booking-list" data-booking-list></div>
+        </div>
+
+        <div class="booking-panel" data-booking-panel="2" hidden>
+          <div class="booking-cal-nav">
+            <button type="button" class="cal-nav-btn" data-cal-prev aria-label="Vorige maand">‹</button>
+            <strong data-cal-label></strong>
+            <button type="button" class="cal-nav-btn" data-cal-next aria-label="Volgende maand">›</button>
           </div>
-          <div class="form-row">
+          <div class="cal-weekdays" aria-hidden="true">
+            <span>Ma</span><span>Di</span><span>Wo</span><span>Do</span><span>Vr</span><span>Za</span><span>Zo</span>
+          </div>
+          <div class="cal-grid" data-cal-grid></div>
+        </div>
+
+        <div class="booking-panel" data-booking-panel="3" hidden>
+          <p class="booking-sub">Beschikbare tijden</p>
+          <div class="booking-times" data-booking-times></div>
+        </div>
+
+        <div class="booking-panel" data-booking-panel="4" hidden>
+          <div class="booking-summary" data-booking-summary></div>
+          <form class="js-contact-form" data-booking-form action="https://formsubmit.co/realbeautyzeeland@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Nieuwe online afspraak — Real Beauty Zeeland">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="behandeling" value="">
+            <input type="hidden" name="duur" value="">
+            <input type="hidden" name="prijs" value="">
+            <input type="hidden" name="gewenste_datum" value="">
+            <input type="hidden" name="gewenste_tijd" value="">
+            <div class="form-row">
+              <div class="field">
+                <label for="naam">Naam</label>
+                <input id="naam" name="naam" type="text" required autocomplete="name">
+              </div>
+              <div class="field">
+                <label for="email">E-mail</label>
+                <input id="email" name="email" type="email" required autocomplete="email">
+              </div>
+            </div>
             <div class="field">
               <label for="telefoon">Telefoon</label>
               <input id="telefoon" name="telefoon" type="tel" required autocomplete="tel">
             </div>
             <div class="field">
-              <label for="behandeling">Gewenste behandeling</label>
-              <select id="behandeling" name="behandeling" required>
-                <option value="" disabled selected>Kies een behandeling</option>
-                <option>Hot Stone Massage — € 89,-</option>
-                <option>Full Body Massage — € 79,-</option>
-                <option>Clean Classic Facial — € 89,-</option>
-                <option>Marokkaanse Botanische Facial — € 69,-</option>
-                <option>Marokkaanse Head Spa — € 99,-</option>
-                <option>Japanse Head Spa — € 119,-</option>
-                <option>Full Body Hair Removal — vanaf € 119,-</option>
-                <option>Clean Classic Hand Spa — € 59,-</option>
-                <option>Clean Classic Voet Spa — € 79,-</option>
-                <option>Botanische Hand Spa — € 49,-</option>
-                <option>Botanische Voet Spa — € 69,-</option>
-                <option>Nog niet zeker / advies</option>
-              </select>
+              <label for="bericht">Opmerking <span class="optional">(optioneel)</span></label>
+              <textarea id="bericht" name="bericht" placeholder="Allergieën, wensen of vragen."></textarea>
             </div>
-          </div>
-          <div class="field">
-            <label for="bericht">Bericht</label>
-            <textarea id="bericht" name="bericht" placeholder="Vertel gerust je wensen, voorkeursdag of vragen."></textarea>
-          </div>
-          <button class="btn" type="submit">Verstuur je afspraak →</button>
-          <p class="form-note">Je gegevens worden alleen gebruikt om je afspraak te bevestigen. Zie ons <a href="privacybeleid.html" class="text-link" style="font-size:13px;letter-spacing:0">privacybeleid</a>.</p>
-        </form>
+            <button class="btn" type="submit">Bevestig afspraak →</button>
+            <p class="form-note">Je gegevens worden alleen gebruikt om je afspraak te bevestigen. Zie ons <a href="privacybeleid.html">privacybeleid</a>.</p>
+          </form>
+        </div>
+
+        <div class="booking-actions">
+          <button type="button" class="booking-back" data-booking-back hidden>Terug</button>
+          <button type="button" class="btn" data-booking-next disabled>Verder</button>
+        </div>
       </div>
     </section>
   </main>
@@ -192,5 +216,6 @@
   </a>
   <a class="mobile-book" href="contact.html">Afspraak maken</a>
   <script src="js/main.js"></script>
+  <script src="js/booking.js"></script>
 </body>
 </html>
