@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none" role="img" aria-label="Real Beauty Zeeland">
+  <defs>
+    <linearGradient id="wave" x1="40" y1="40" x2="120" y2="150" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A9C2BE"/>
+      <stop offset="1" stop-color="#7F9E9A"/>
+    </linearGradient>
+    <linearGradient id="earth" x1="70" y1="150" x2="170" y2="210" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D4B49A"/>
+      <stop offset="1" stop-color="#C08A6A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- wave fill -->
+  <path fill="url(#wave)" d="M38 168c8-38 28-70 62-92 6 18 4 38-8 54 22-10 40-8 58 4-28 8-48 28-56 54-22-2-42-8-56-20z"/>
+  <path fill="#E8F0EE" opacity=".55" d="M52 96c18-8 34-6 46 6-16 6-30 20-34 38-12-10-18-26-12-44z"/>
+
+  <!-- earth / shoulder fill -->
+  <path fill="url(#earth)" d="M86 168c22 18 52 28 86 22 2 10-6 22-22 28-28 8-58 2-78-16-8-8-8-22 14-34z"/>
+
+  <!-- wave outline -->
+  <path stroke="#1C1C1C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M36 172c10-42 32-76 70-98 4 14 2 32-8 46 24-12 46-8 66 6"/>
+  <path stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" d="M70 92c12 8 18 22 16 38"/>
+  <path stroke="#1C1C1C" stroke-width="1.3" stroke-linecap="round" d="M58 108c10 4 16 14 16 26"/>
+  <circle cx="64" cy="88" r="1.3" fill="#1C1C1C"/>
+  <circle cx="78" cy="80" r="1.1" fill="#1C1C1C"/>
+  <circle cx="90" cy="86" r="0.9" fill="#1C1C1C"/>
+
+  <!-- turban -->
+  <path stroke="#1C1C1C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M148 58c18 8 28 24 30 44 2 16-4 30-16 40M148 58c-16 6-28 22-30 42-.4 8 2 16 8 24"/>
+  <path stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" d="M128 78c14-8 32-8 46 2"/>
+  <path stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" d="M124 98c16-6 34-4 48 8"/>
+  <path stroke="#1C1C1C" stroke-width="1.4" stroke-linecap="round" d="M126 116c14-4 30-2 42 10"/>
+
+  <!-- face profile facing left -->
+  <path stroke="#1C1C1C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M142 102c-8 2-14 8-16 16-1 5 0 9 4 12-6 2-10 8-9 14 1 6 6 10 12 11 2 8 8 14 16 16"/>
+  <!-- brow + closed eye -->
+  <path stroke="#1C1C1C" stroke-width="1.4" stroke-linecap="round" d="M128 118c6 1 11 4 14 8"/>
+  <path stroke="#1C1C1C" stroke-width="1.2" stroke-linecap="round" d="M130 124c4 .6 8 2 10 5"/>
+  <path stroke="#1C1C1C" stroke-width="1.1" stroke-linecap="round" d="M132 122.5l-2.2-3.2M136 124l-1.2-3.4M140 126.5l-.4-3.2"/>
+  <!-- nose / lips -->
+  <path stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" d="M126 132c-3 2-4 5-2 8 2 2 5 2 7 1"/>
+  <path stroke="#1C1C1C" stroke-width="1.4" stroke-linecap="round" d="M128 144c3 2 7 2 10 0"/>
+  <!-- neck / collarbone -->
+  <path stroke="#1C1C1C" stroke-width="1.7" stroke-linecap="round" d="M149 159c2 12 8 22 18 28"/>
+  <path stroke="#1C1C1C" stroke-width="1.6" stroke-linecap="round" d="M86 176c28 22 70 28 108 8"/>
+
+  <!-- hoop earring -->
+  <circle cx="146" cy="138" r="5.2" stroke="#C08A3E" stroke-width="1.6"/>
+</svg>

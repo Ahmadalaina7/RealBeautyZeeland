@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" fill="none">
+  <g stroke="#C08A3E" stroke-width="0.7" opacity="0.35">
+    <circle cx="200" cy="200" r="40"/>
+    <circle cx="200" cy="200" r="70"/>
+    <circle cx="200" cy="200" r="100"/>
+    <circle cx="200" cy="200" r="130"/>
+    <circle cx="200" cy="200" r="160"/>
+    <circle cx="200" cy="200" r="188"/>
+    <g>
+      <path d="M200 12 L200 388 M12 200 L388 200 M62 62 L338 338 M338 62 L62 338"/>
+      <path d="M200 200 L200 12 M200 200 L338 62 M200 200 L388 200 M200 200 L338 338 M200 200 L200 388 M200 200 L62 338 M200 200 L12 200 M200 200 L62 62"/>
+    </g>
+    <g transform="rotate(22.5 200 200)">
+      <path d="M200 12 L200 388 M12 200 L388 200 M62 62 L338 338 M338 62 L62 338"/>
+    </g>
+    <g>
+      <path d="M200 60c28 20 28 60 0 80-28-20-28-60 0-80z" transform="rotate(0 200 200)"/>
+      <path d="M200 60c28 20 28 60 0 80-28-20-28-60 0-80z" transform="rotate(45 200 200)"/>
+      <path d="M200 60c28 20 28 60 0 80-28-20-28-60 0-80z" transform="rotate(90 200 200)"/>
+      <path d="M200 60c28 20 28 60 0 80-28-20-28-60 0-80z" transform="rotate(135 200 200)"/>
+      <path d="M200 60c28 20 28 60 0 80-28-20-28-60 0-80z" transform="rotate(180 200 200)"/>
+      <path d="M200 60c28 20 28 60 0 80-28-20-28-60 0-80z" transform="rotate(225 200 200)"/>
+      <path d="M200 60c28 20 28 60 0 80-28-20-28-60 0-80z" transform="rotate(270 200 200)"/>
+      <path d="M200 60c28 20 28 60 0 80-28-20-28-60 0-80z" transform="rotate(315 200 200)"/>
+    </g>
+    <g>
+      <circle cx="200" cy="70" r="10"/>
+      <circle cx="200" cy="330" r="10"/>
+      <circle cx="70" cy="200" r="10"/>
+      <circle cx="330" cy="200" r="10"/>
+      <circle cx="108" cy="108" r="10"/>
+      <circle cx="292" cy="108" r="10"/>
+      <circle cx="108" cy="292" r="10"/>
+      <circle cx="292" cy="292" r="10"/>
+    </g>
+    <path d="M200 130c38 18 38 62 0 80-38-18-38-62 0-80z"/>
+    <path d="M200 130c38 18 38 62 0 80-38-18-38-62 0-80z" transform="rotate(90 200 200)"/>
+    <path d="M200 130c38 18 38 62 0 80-38-18-38-62 0-80z" transform="rotate(45 200 200)"/>
+    <path d="M200 130c38 18 38 62 0 80-38-18-38-62 0-80z" transform="rotate(135 200 200)"/>
+  </g>
+</svg>
