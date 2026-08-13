@@ -129,7 +129,14 @@
     });
   };
 
-  const setStep = (step) => {
+  const scrollBookingIntoView = () => {
+    const header = document.querySelector(".site-header");
+    const offset = (header?.offsetHeight || 0) + 12;
+    const top = root.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  };
+
+  const setStep = (step, opts = {}) => {
     if (!canReach(step)) return;
     state.step = step;
     el.title.textContent = titles[step];
@@ -144,6 +151,7 @@
     if (step === 2) renderCalendar();
     if (step === 3) renderTimes();
     if (step === 4) renderSummary();
+    if (opts.scroll !== false) requestAnimationFrame(scrollBookingIntoView);
   };
 
   const canNext = () => {
@@ -327,5 +335,5 @@
 
   renderCats();
   renderList();
-  setStep(1);
+  setStep(1, { scroll: false });
 })();

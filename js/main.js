@@ -10,8 +10,17 @@
     if (!header) return;
     header.classList.toggle("scrolled", window.scrollY > 24);
   };
+  let scrollTick = false;
+  const onScrollRaf = () => {
+    if (scrollTick) return;
+    scrollTick = true;
+    requestAnimationFrame(() => {
+      onScroll();
+      scrollTick = false;
+    });
+  };
   onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("scroll", onScrollRaf, { passive: true });
 
   const setMenuOpen = (open) => {
     if (!nav || !toggle) return;
