@@ -5,18 +5,18 @@
 :root {
   --cream: #F7F3EC;
   --cream-deep: #EFE8DC;
-  --navy: #2C4356;
-  --gold: #C08A3E;
-  --gold-soft: #D4A45A;
-  --dust: #7C97A3;
-  --dust-deep: #5C7684;
-  --dust-dark: #4A6270;
-  --text: #5A5A5A;
+  --navy: #1A3040;
+  --gold: #A86B24;
+  --gold-soft: #C08A3E;
+  --dust: #4F6B78;
+  --dust-deep: #3D5662;
+  --dust-dark: #334A54;
+  --text: #2F3C46;
   --white: #FFFcf7;
   --card: #FFFcf8;
-  --line: rgba(44, 67, 86, 0.12);
-  --shadow: 0 10px 30px rgba(44, 67, 86, 0.08);
-  --shadow-hover: 0 18px 40px rgba(44, 67, 86, 0.14);
+  --line: rgba(26, 48, 64, 0.14);
+  --shadow: 0 10px 30px rgba(26, 48, 64, 0.1);
+  --shadow-hover: 0 18px 40px rgba(26, 48, 64, 0.16);
   --serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
   --serif-soft: "Cormorant Garamond", "Playfair Display", Georgia, serif;
   --serif-hero: "Bodoni Moda", "Playfair Display", Georgia, serif;
@@ -42,7 +42,7 @@ html {
 
 body {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.8;
   color: var(--text);
@@ -494,9 +494,9 @@ h1, h2, h3, .heading {
   font-family: var(--serif-soft);
   font-style: italic;
   font-size: clamp(22px, 2.2vw, 28px);
-  color: #A6835A;
+  color: #8A5A24;
   letter-spacing: 0.02em;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 22px;
   text-shadow: none;
 }
@@ -505,7 +505,7 @@ h1, h2, h3, .heading {
   font-family: var(--sans);
   font-style: normal;
   font-size: 15.5px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.9;
   margin-bottom: 32px;
   max-width: 38ch;
@@ -2262,7 +2262,7 @@ h1, h2, h3, .heading {
   .hero-tagline {
     font-size: clamp(18px, 4.4vw, 22px);
     margin-bottom: 24px;
-    color: #8F6E3F;
+    color: #8A5A24;
     text-shadow: 0 1px 12px rgba(247, 243, 236, 0.95);
   }
   .hero-content p:not(.hero-kicker):not(.hero-tagline) {
