@@ -1,27 +1,44 @@
 ﻿/* ============================================
-   Real Beauty Zeeland â€” Design system
+   Real Beauty Zeeland — Design system
+   Terra & Aqua: licht, warm en verfijnd,
+   met een zachte Marokkaans-oriëntaalse invloed
    ============================================ */
 
 :root {
-  --cream: #F7F3EC;
-  --cream-deep: #EFE8DC;
-  --navy: #1A3040;
-  --gold: #A86B24;
-  --gold-soft: #C08A3E;
-  --dust: #4F6B78;
-  --dust-deep: #3D5662;
-  --dust-dark: #334A54;
-  --text: #2F3C46;
-  --white: #FFFcf7;
-  --card: #FFFcf8;
-  --line: rgba(26, 48, 64, 0.14);
-  --shadow: 0 10px 30px rgba(26, 48, 64, 0.1);
-  --shadow-hover: 0 18px 40px rgba(26, 48, 64, 0.16);
-  --serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
-  --serif-soft: "Cormorant Garamond", "Playfair Display", Georgia, serif;
-  --serif-hero: "Bodoni Moda", "Playfair Display", Georgia, serif;
-  --script-hero: "Italiana", "Cormorant Garamond", Georgia, serif;
+  /* Base — licht, kalm crème */
+  --cream: #FAF6EE;
+  --cream-deep: #F1E7D5;
+  --white: #FFFEFB;
+  --card: #FFFDF9;
+
+  /* Terra — warme, aardse accenten */
+  --terra: #C17A54;
+  --terra-soft: #EAD3BF;
+  --terra-deep: #A05F3C;
+
+  /* Aqua — zacht waterblauw */
+  --aqua: #86AFB2;
+  --aqua-soft: #DCEDEC;
+  --aqua-deep: #4C7276;
+  --aqua-deeper: #3A5B5E;
+
+  /* Goud — subtiele, warme highlight */
+  --gold: #C39A54;
+  --gold-soft: #DABD86;
+  --gold-deep: #9A6B28;
+
+  /* Tekst & lijnen */
+  --navy: #2C4A50;
+  --text: #3F5055;
+  --line: rgba(44, 74, 80, 0.14);
+  --shadow: 0 10px 28px rgba(120, 78, 48, 0.09);
+  --shadow-hover: 0 16px 36px rgba(120, 78, 48, 0.16);
+
+  /* Typografie */
+  --serif: "Playfair Display", "Lora", Georgia, serif;
+  --serif-soft: "Lora", "Playfair Display", Georgia, serif;
   --sans: "Lato", "Montserrat", "Helvetica Neue", Arial, sans-serif;
+
   --max: 1180px;
   --header-h: 92px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -103,7 +120,7 @@ h1, h2, h3, .heading {
   font-family: var(--serif);
   color: var(--navy);
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.06em;
   line-height: 1.2;
 }
 
@@ -114,7 +131,7 @@ h1, h2, h3, .heading {
   gap: 10px;
   width: 92px;
   margin: 18px 0 22px;
-  color: var(--gold);
+  color: var(--gold-deep);
 }
 
 .ornament.left {
@@ -144,7 +161,7 @@ h1, h2, h3, .heading {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: var(--dust);
+  background: var(--aqua-deep);
   color: #fff;
   font-family: var(--sans);
   font-weight: 400;
@@ -153,16 +170,16 @@ h1, h2, h3, .heading {
   text-transform: uppercase;
   padding: 13px 22px;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 3px 3px 12px 3px;
   cursor: pointer;
   transition: background 0.35s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
   white-space: nowrap;
 }
 
 .btn:hover {
-  background: var(--dust-deep);
+  background: var(--navy);
   transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(92, 118, 132, 0.28);
+  box-shadow: 0 8px 18px rgba(44, 74, 80, 0.32);
 }
 
 .btn-gold {
@@ -172,7 +189,7 @@ h1, h2, h3, .heading {
 
 .btn-gold:hover {
   background: var(--gold-soft);
-  box-shadow: 0 8px 18px rgba(192, 138, 62, 0.28);
+  box-shadow: 0 8px 18px rgba(195, 154, 84, 0.3);
 }
 
 .text-link {
@@ -190,8 +207,8 @@ h1, h2, h3, .heading {
 }
 
 .text-link:hover {
-  color: var(--gold);
-  border-color: var(--gold);
+  color: var(--gold-deep);
+  border-color: var(--gold-deep);
   gap: 12px;
 }
 
@@ -208,8 +225,25 @@ h1, h2, h3, .heading {
 
 .site-header.scrolled,
 .site-header.solid {
-  background: rgba(247, 243, 236, 0.96);
+  background: rgba(250, 246, 238, 0.96);
   box-shadow: 0 1px 0 var(--line);
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--terra) 0%, var(--gold) 45%, var(--aqua) 100%);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+}
+
+.site-header.scrolled::after,
+.site-header.solid::after {
+  opacity: 1;
 }
 
 .header-inner {
@@ -349,7 +383,7 @@ h1, h2, h3, .heading {
 }
 
 .dropdown a:hover {
-  color: var(--gold);
+  color: var(--gold-deep);
 }
 
 .header-cta {
@@ -401,7 +435,7 @@ h1, h2, h3, .heading {
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: #1f3342;
+  background: linear-gradient(155deg, var(--terra-soft) 0%, var(--cream) 46%, var(--aqua-soft) 100%);
 }
 
 .hero-media {
@@ -435,9 +469,9 @@ h1, h2, h3, .heading {
   inset: 0;
   background: linear-gradient(
     to right,
-    rgba(247, 243, 236, 0.42) 0%,
-    rgba(247, 243, 236, 0.18) 42%,
-    rgba(247, 243, 236, 0) 72%
+    rgba(250, 246, 238, 0.62) 0%,
+    rgba(250, 246, 238, 0.32) 42%,
+    rgba(250, 246, 238, 0.04) 72%
   );
   pointer-events: none;
 }
@@ -483,7 +517,7 @@ h1, h2, h3, .heading {
 
 .hero-content .ornament {
   margin: 20px auto 24px;
-  color: var(--gold);
+  color: var(--gold-deep);
 }
 
 .hero-content .ornament span {
@@ -494,7 +528,7 @@ h1, h2, h3, .heading {
   font-family: var(--serif-soft);
   font-style: italic;
   font-size: clamp(22px, 2.2vw, 28px);
-  color: #8A5A24;
+  color: var(--terra-deep);
   letter-spacing: 0.02em;
   font-weight: 600;
   margin-bottom: 22px;
@@ -565,10 +599,10 @@ h1, h2, h3, .heading {
 }
 
 .page-home .site-header:not(.scrolled):not(.solid) .header-cta {
-  border-color: rgba(44, 67, 86, 0.28);
+  border-color: rgba(44, 74, 80, 0.28);
 }
 
-/* Page hero (inner pages) — heldere foto, lichte scrim alleen voor titel */
+/* Page hero (inner pages) — licht crème/terra/aqua verloop, klaar voor eigen foto's */
 .page-hero {
   position: relative;
   min-height: 48vh;
@@ -576,7 +610,19 @@ h1, h2, h3, .heading {
   align-items: flex-end;
   padding: 140px 0 64px;
   overflow: hidden;
-  background: var(--navy);
+  background: linear-gradient(150deg, var(--terra-soft) 0%, var(--cream) 48%, var(--aqua-soft) 100%);
+  border-bottom: 1px solid rgba(195, 154, 84, 0.3);
+}
+
+.page-hero::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--terra) 0%, var(--gold) 48%, var(--aqua) 100%);
+  z-index: 2;
 }
 
 .page-hero img {
@@ -593,12 +639,7 @@ h1, h2, h3, .heading {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg,
-      rgba(44, 67, 86, 0.06) 0%,
-      rgba(44, 67, 86, 0.1) 38%,
-      rgba(44, 67, 86, 0.42) 100%),
-    radial-gradient(ellipse 90% 70% at 50% 40%, transparent 45%, rgba(44, 67, 86, 0.14) 100%);
+  background: linear-gradient(180deg, rgba(250, 246, 238, 0.22) 0%, rgba(250, 246, 238, 0.72) 100%);
   pointer-events: none;
 }
 
@@ -609,34 +650,33 @@ h1, h2, h3, .heading {
 }
 
 .page-hero h1 {
-  color: var(--cream);
+  color: var(--navy);
   font-size: clamp(28px, 4vw, 44px);
-  letter-spacing: 0.2em;
-  text-shadow: 0 2px 24px rgba(44, 67, 86, 0.35);
+  letter-spacing: 0.14em;
+  text-shadow: none;
 }
 
 .page-hero .ornament {
   margin-inline: auto;
-  color: var(--gold);
+  color: var(--gold-deep);
 }
 
 .page-hero .ornament span {
-  background: var(--gold);
+  background: linear-gradient(90deg, var(--terra), var(--gold));
 }
 
 .page-hero p {
-  color: rgba(247, 243, 236, 0.94);
+  color: var(--text);
   font-family: var(--serif-soft);
   font-style: italic;
   font-size: 20px;
-  text-shadow: 0 1px 16px rgba(44, 67, 86, 0.35);
+  text-shadow: none;
 }
 
 /* ========== Welcome ========== */
 .welcome {
   padding: 110px 0 90px;
-  background:
-    linear-gradient(180deg, #F0E9DD 0%, #E8E0D2 45%, #E4DACB 100%);
+  background: linear-gradient(180deg, var(--cream) 0%, var(--cream-deep) 55%, var(--terra-soft) 100%);
 }
 
 .welcome-grid {
@@ -672,21 +712,29 @@ h1, h2, h3, .heading {
   aspect-ratio: 1;
   background: var(--cream-deep);
   box-shadow: var(--shadow);
+  border-radius: 50% 50% 8px 8px / 34% 34% 8px 8px;
 }
 
 .welcome-photos figure:nth-child(2) {
   transform: translateY(-18px);
   aspect-ratio: 4 / 5;
+  border-radius: 50% 50% 8px 8px / 22% 22% 8px 8px;
 }
 
 .welcome-photos figure::after {
   content: "";
   position: absolute;
   inset: 10px;
-  border: 1px solid rgba(192, 138, 62, 0.4);
+  border: 1px solid rgba(195, 154, 84, 0.45);
+  border-radius: 50% 50% 6px 6px / 34% 34% 6px 6px;
   pointer-events: none;
-  opacity: 0.55;
+  opacity: 0.6;
   transition: opacity 0.4s var(--ease), inset 0.4s var(--ease);
+}
+
+.welcome-photos figure:nth-child(2)::after {
+  border-radius: 50% 50% 6px 6px / 22% 22% 6px 6px;
+  border-color: rgba(91, 134, 137, 0.5);
 }
 
 .welcome-photos figure:hover::after {
@@ -710,8 +758,8 @@ h1, h2, h3, .heading {
 .treatments {
   padding: 40px 0 110px;
   background:
-    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(192, 138, 62, 0.1), transparent 60%),
-    linear-gradient(180deg, #EDE6D8 0%, #E8DFD0 100%);
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(195, 154, 84, 0.12), transparent 60%),
+    linear-gradient(180deg, var(--terra-soft) 0%, var(--cream) 32%, var(--aqua-soft) 100%);
 }
 
 .section-head {
@@ -736,7 +784,7 @@ h1, h2, h3, .heading {
 
 .card {
   background: var(--card);
-  border: 1px solid rgba(44, 67, 86, 0.06);
+  border: 1px solid rgba(44, 74, 80, 0.06);
   box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
@@ -746,20 +794,21 @@ h1, h2, h3, .heading {
 .card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-hover);
-  border-color: rgba(192, 138, 62, 0.28);
+  border-color: rgba(195, 154, 84, 0.32);
 }
 
 .card-media {
   overflow: hidden;
   aspect-ratio: 16 / 11;
   position: relative;
+  border-radius: 50% 50% 6px 6px / 20% 20% 6px 6px;
 }
 
 .card-media::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 70%, rgba(44, 67, 86, 0.12) 100%);
+  background: linear-gradient(180deg, transparent 70%, rgba(44, 74, 80, 0.12) 100%);
   pointer-events: none;
 }
 
@@ -788,7 +837,7 @@ h1, h2, h3, .heading {
 .card-icon {
   width: 28px;
   height: 28px;
-  color: var(--gold);
+  color: var(--gold-deep);
   margin-bottom: 10px;
 }
 
@@ -809,7 +858,7 @@ h1, h2, h3, .heading {
   font-family: var(--serif);
   font-size: 15px;
   letter-spacing: 0.06em;
-  color: var(--gold);
+  color: var(--gold-deep);
   margin: -6px 0 14px;
   flex: 0;
 }
@@ -817,8 +866,7 @@ h1, h2, h3, .heading {
 /* ========== Experience ========== */
 .experience {
   position: relative;
-  background:
-    linear-gradient(135deg, #F3EDE3 0%, #E9E0D2 48%, #E4DAC9 100%);
+  background: linear-gradient(135deg, var(--aqua-soft) 0%, var(--cream) 52%, var(--terra-soft) 100%);
   overflow: hidden;
 }
 
@@ -829,6 +877,7 @@ h1, h2, h3, .heading {
 }
 
 .experience-photo {
+  position: relative;
   min-height: 480px;
 }
 
@@ -885,7 +934,7 @@ h1, h2, h3, .heading {
 
 /* ========== Footer ========== */
 .site-footer {
-  background: var(--dust);
+  background: var(--aqua-deep);
   color: var(--cream);
   position: relative;
 }
@@ -898,11 +947,11 @@ h1, h2, h3, .heading {
   top: -18px;
   height: 28px;
   background:
-    radial-gradient(18px 18px at 10% 100%, var(--dust) 49%, transparent 50%),
-    radial-gradient(18px 18px at 30% 100%, var(--dust) 49%, transparent 50%),
-    radial-gradient(18px 18px at 50% 100%, var(--dust) 49%, transparent 50%),
-    radial-gradient(18px 18px at 70% 100%, var(--dust) 49%, transparent 50%),
-    radial-gradient(18px 18px at 90% 100%, var(--dust) 49%, transparent 50%);
+    radial-gradient(18px 18px at 10% 100%, var(--aqua-deep) 49%, transparent 50%),
+    radial-gradient(18px 18px at 30% 100%, var(--aqua-deep) 49%, transparent 50%),
+    radial-gradient(18px 18px at 50% 100%, var(--aqua-deep) 49%, transparent 50%),
+    radial-gradient(18px 18px at 70% 100%, var(--aqua-deep) 49%, transparent 50%),
+    radial-gradient(18px 18px at 90% 100%, var(--aqua-deep) 49%, transparent 50%);
   background-size: 20% 28px;
 }
 
@@ -936,7 +985,7 @@ h1, h2, h3, .heading {
 .socials a {
   width: 36px;
   height: 36px;
-  border: 1px solid rgba(247, 243, 236, 0.35);
+  border: 1px solid rgba(250, 246, 238, 0.35);
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -945,7 +994,7 @@ h1, h2, h3, .heading {
 }
 
 .socials a:hover {
-  background: rgba(247, 243, 236, 0.12);
+  background: rgba(250, 246, 238, 0.12);
   border-color: var(--cream);
 }
 
@@ -969,7 +1018,7 @@ h1, h2, h3, .heading {
 .site-footer a {
   font-size: 14.5px;
   line-height: 1.9;
-  color: rgba(247, 243, 236, 0.9);
+  color: rgba(250, 246, 238, 0.9);
 }
 
 .site-footer a:hover {
@@ -981,10 +1030,10 @@ h1, h2, h3, .heading {
 }
 
 .footer-bottom {
-  background: var(--dust-deep);
+  background: var(--aqua-deeper);
   padding: 16px 0;
   font-size: 12.5px;
-  color: rgba(247, 243, 236, 0.8);
+  color: rgba(250, 246, 238, 0.8);
 }
 
 .footer-bottom .container {
@@ -1043,7 +1092,7 @@ h1, h2, h3, .heading {
   font-family: var(--serif-soft);
   font-style: italic;
   font-size: 26px;
-  color: var(--gold);
+  color: var(--terra-deep);
   line-height: 1.4;
 }
 
@@ -1055,9 +1104,11 @@ h1, h2, h3, .heading {
 }
 
 .prose-photo {
+  position: relative;
   overflow: hidden;
   min-height: 420px;
   box-shadow: var(--shadow);
+  border-radius: 50% 50% 10px 10px / 14% 14% 10px 10px;
 }
 
 .prose-photo img {
@@ -1074,12 +1125,20 @@ h1, h2, h3, .heading {
   gap: 16px;
 }
 
+.split-photos > * {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border-radius: 50% 50% 8px 8px / 24% 24% 8px 8px;
+}
+
 .split-photos img {
   width: 100%;
   height: 280px;
   object-fit: cover;
   filter: saturate(1.12) contrast(1.06);
-  box-shadow: var(--shadow);
 }
 
 .hours-table {
@@ -1143,7 +1202,7 @@ h1, h2, h3, .heading {
 .contact-list svg {
   width: 18px;
   height: 18px;
-  color: var(--gold);
+  color: var(--gold-deep);
   margin-top: 4px;
 }
 
@@ -1159,7 +1218,7 @@ h1, h2, h3, .heading {
   background: var(--card);
   padding: 42px 40px;
   box-shadow: var(--shadow);
-  border: 1px solid rgba(44, 67, 86, 0.06);
+  border: 1px solid rgba(44, 74, 80, 0.06);
 }
 
 .form-card h2 {
@@ -1192,7 +1251,7 @@ h1, h2, h3, .heading {
 .field textarea {
   width: 100%;
   background: var(--cream);
-  border: 1px solid rgba(44, 67, 86, 0.12);
+  border: 1px solid rgba(44, 74, 80, 0.12);
   padding: 12px 14px;
   color: var(--navy);
   font-size: 16px;
@@ -1205,7 +1264,7 @@ h1, h2, h3, .heading {
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
-  border-color: var(--gold);
+  border-color: var(--gold-deep);
 }
 
 .field textarea {
@@ -1222,7 +1281,7 @@ h1, h2, h3, .heading {
 .form-success {
   display: none;
   padding: 16px;
-  background: rgba(124, 151, 163, 0.15);
+  background: rgba(134, 175, 178, 0.15);
   color: var(--navy);
   margin-bottom: 16px;
   font-size: 14.5px;
@@ -1235,7 +1294,7 @@ h1, h2, h3, .heading {
 /* ========== Booking widget (Salonized-style flow) ========== */
 .booking-widget {
   background: var(--card);
-  border: 1px solid rgba(44, 67, 86, 0.06);
+  border: 1px solid rgba(44, 74, 80, 0.06);
   box-shadow: var(--shadow);
   padding: 32px 30px 24px;
   display: flex;
@@ -1269,7 +1328,7 @@ h1, h2, h3, .heading {
   display: grid;
   place-items: center;
   font-size: 13px;
-  color: var(--dust-deep);
+  color: var(--aqua-deep);
   font-family: var(--serif);
   background: transparent;
   cursor: pointer;
@@ -1277,20 +1336,20 @@ h1, h2, h3, .heading {
 }
 
 .booking-steps button:hover:not(:disabled) {
-  border-color: var(--dust);
+  border-color: var(--aqua);
   color: var(--navy);
   transform: translateY(-1px);
 }
 
 .booking-steps button.is-active {
-  background: var(--dust);
-  border-color: var(--dust);
+  background: var(--aqua-deep);
+  border-color: var(--aqua-deep);
   color: #fff;
 }
 
 .booking-steps button.is-done {
-  background: rgba(124, 151, 163, 0.18);
-  border-color: var(--dust);
+  background: rgba(134, 175, 178, 0.18);
+  border-color: var(--aqua);
   color: var(--navy);
 }
 
@@ -1349,7 +1408,7 @@ h1, h2, h3, .heading {
 }
 
 .booking-cat:hover {
-  border-color: var(--dust);
+  border-color: var(--aqua);
 }
 
 .booking-cat.is-active {
@@ -1364,7 +1423,7 @@ h1, h2, h3, .heading {
   padding-right: 6px;
   margin-right: -2px;
   scrollbar-width: thin;
-  scrollbar-color: rgba(124, 151, 163, 0.45) transparent;
+  scrollbar-color: rgba(134, 175, 178, 0.45) transparent;
 }
 
 .booking-list::-webkit-scrollbar {
@@ -1372,7 +1431,7 @@ h1, h2, h3, .heading {
 }
 
 .booking-list::-webkit-scrollbar-thumb {
-  background: rgba(124, 151, 163, 0.4);
+  background: rgba(134, 175, 178, 0.4);
   border-radius: 999px;
 }
 
@@ -1380,7 +1439,7 @@ h1, h2, h3, .heading {
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-deep);
   margin: 16px 0 10px;
 }
 
@@ -1394,20 +1453,20 @@ h1, h2, h3, .heading {
   align-items: flex-start;
   padding: 14px 12px;
   border: 1px solid transparent;
-  border-bottom: 1px solid rgba(44, 67, 86, 0.08);
+  border-bottom: 1px solid rgba(44, 74, 80, 0.08);
   cursor: pointer;
   transition: background 0.2s, border-color 0.2s;
 }
 
 .booking-service:hover,
 .booking-service.is-selected {
-  background: rgba(247, 243, 236, 0.85);
-  border-color: rgba(124, 151, 163, 0.35);
+  background: rgba(250, 246, 238, 0.85);
+  border-color: rgba(134, 175, 178, 0.35);
 }
 
 .booking-service input {
   margin-top: 4px;
-  accent-color: var(--dust-deep);
+  accent-color: var(--aqua-deep);
   flex-shrink: 0;
 }
 
@@ -1433,7 +1492,7 @@ h1, h2, h3, .heading {
 
 .booking-service-price {
   font-family: var(--serif);
-  color: var(--gold);
+  color: var(--gold-deep);
   white-space: nowrap;
   font-size: 15px;
   flex-shrink: 0;
@@ -1442,7 +1501,7 @@ h1, h2, h3, .heading {
 .booking-service-meta {
   display: block;
   font-size: 12px;
-  color: var(--dust-deep);
+  color: var(--aqua-deep);
   margin: 2px 0 6px;
 }
 
@@ -1487,8 +1546,8 @@ h1, h2, h3, .heading {
 }
 
 .cal-nav-btn:hover {
-  border-color: var(--dust);
-  background: rgba(247, 243, 236, 0.8);
+  border-color: var(--aqua);
+  background: rgba(250, 246, 238, 0.8);
 }
 
 .cal-weekdays,
@@ -1503,7 +1562,7 @@ h1, h2, h3, .heading {
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--dust-deep);
+  color: var(--aqua-deep);
   padding-bottom: 8px;
 }
 
@@ -1525,11 +1584,11 @@ h1, h2, h3, .heading {
 }
 
 .cal-cell.is-today {
-  border-color: rgba(192, 138, 62, 0.45);
+  border-color: rgba(195, 154, 84, 0.45);
 }
 
 .cal-cell.is-selected {
-  background: var(--dust);
+  background: var(--aqua-deep);
   color: #fff;
 }
 
@@ -1540,14 +1599,14 @@ h1, h2, h3, .heading {
 }
 
 .cal-cell:not(:disabled):hover {
-  border-color: var(--dust);
+  border-color: var(--aqua);
 }
 
 .booking-sub {
   font-size: 13px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-deep);
   margin-bottom: 14px;
 }
 
@@ -1571,8 +1630,8 @@ h1, h2, h3, .heading {
 
 .booking-time:hover,
 .booking-time.is-selected {
-  background: var(--dust);
-  border-color: var(--dust);
+  background: var(--aqua-deep);
+  border-color: var(--aqua-deep);
   color: #fff;
 }
 
@@ -1587,7 +1646,7 @@ h1, h2, h3, .heading {
   padding: 18px;
   margin-bottom: 20px;
   background: var(--cream);
-  border: 1px solid rgba(44, 67, 86, 0.08);
+  border: 1px solid rgba(44, 74, 80, 0.08);
 }
 
 .booking-summary div {
@@ -1637,7 +1696,7 @@ h1, h2, h3, .heading {
 }
 
 .booking-back:hover {
-  color: var(--gold);
+  color: var(--gold-deep);
 }
 
 .booking-actions .btn {
@@ -1824,7 +1883,7 @@ h1, h2, h3, .heading {
     bottom: 0;
     background: var(--card);
     z-index: 3;
-    box-shadow: 0 -8px 16px rgba(247, 243, 236, 0.9);
+    box-shadow: 0 -8px 16px rgba(250, 246, 238, 0.9);
   }
   .booking-actions .btn {
     flex: 1 1 auto;
@@ -1866,6 +1925,101 @@ h1, h2, h3, .heading {
   }
 }
 
+/* ========== Foto-placeholder ==========
+   Tijdelijke plek voor Yamina's eigen foto's van de salon,
+   producten en behandelingen. Vervang het element met deze
+   class simpelweg door een <img> zodra de foto's er zijn —
+   de omliggende vorm (boog, schaduw, rand) blijft dan intact. */
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding: 26px 22px;
+  background: linear-gradient(160deg, var(--terra-soft) 0%, var(--cream) 50%, var(--aqua-soft) 100%);
+  border: 1.5px dashed var(--gold-soft);
+}
+
+.photo-placeholder-icon {
+  width: 34px;
+  height: 34px;
+  color: var(--terra-deep);
+  opacity: 0.75;
+}
+
+.photo-placeholder-label {
+  font-family: var(--serif);
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.photo-placeholder-note {
+  font-family: var(--sans);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--aqua-deep);
+  max-width: 22ch;
+}
+
+.hero-media .photo-placeholder,
+.page-hero .photo-placeholder,
+.prose-photo .photo-placeholder,
+.experience-photo .photo-placeholder,
+.split-photos > div .photo-placeholder,
+.card-media .photo-placeholder,
+.welcome-photos figure .photo-placeholder {
+  position: absolute;
+  inset: 0;
+  min-height: 0;
+}
+
+/* Voorbeeldfoto — sfeervolle placeholder met echte afbeelding,
+   duidelijk gelabeld zodat deze later vervangen wordt door
+   eigen foto's van de salon */
+.photo-placeholder--example {
+  position: relative;
+  padding: 0;
+  gap: 0;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(195, 154, 84, 0.28);
+  background: var(--cream-deep);
+}
+
+.photo-placeholder--example img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-placeholder-badge {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 2;
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy);
+  background: rgba(250, 246, 238, 0.92);
+  border: 1px solid rgba(195, 154, 84, 0.4);
+  border-radius: 999px;
+  padding: 6px 13px;
+  box-shadow: 0 4px 12px rgba(120, 78, 48, 0.14);
+  pointer-events: none;
+}
+
 /* Treatment detail extras */
 .treat-meta {
   display: flex;
@@ -1882,7 +2036,7 @@ h1, h2, h3, .heading {
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-deep);
   margin-bottom: 4px;
 }
 
@@ -1916,13 +2070,13 @@ h1, h2, h3, .heading {
 .price-dots {
   flex: 1;
   min-width: 16px;
-  border-bottom: 1px dotted rgba(44, 67, 86, 0.28);
+  border-bottom: 1px dotted rgba(44, 74, 80, 0.28);
   transform: translateY(-5px);
 }
 
 .price-amount {
   font-family: var(--serif);
-  color: var(--gold);
+  color: var(--gold-deep);
   white-space: nowrap;
   letter-spacing: 0.04em;
   font-size: 16px;
@@ -2151,7 +2305,7 @@ h1, h2, h3, .heading {
     font-family: var(--sans);
     font-size: 11px;
     letter-spacing: 0.16em;
-    background: var(--dust);
+    background: var(--aqua-deep);
     padding: 14px 24px;
     min-height: 48px;
   }
@@ -2185,7 +2339,7 @@ h1, h2, h3, .heading {
     padding: 12px 16px;
     font-size: 14px;
     letter-spacing: 0.14em;
-    color: var(--dust-deep);
+    color: var(--aqua-deep);
     min-height: 44px;
     display: flex;
     align-items: center;
@@ -2193,7 +2347,7 @@ h1, h2, h3, .heading {
   }
   .dropdown a:hover,
   .dropdown a:focus-visible {
-    color: var(--gold);
+    color: var(--gold-deep);
   }
   body.menu-open .mobile-book,
   body.menu-open .wa-float {
@@ -2219,13 +2373,13 @@ h1, h2, h3, .heading {
   .hero-media::after {
     background:
       radial-gradient(ellipse 120% 70% at 50% 42%,
-        rgba(247, 243, 236, 0.78) 0%,
-        rgba(247, 243, 236, 0.42) 55%,
-        rgba(247, 243, 236, 0.18) 100%),
+        rgba(250, 246, 238, 0.78) 0%,
+        rgba(250, 246, 238, 0.42) 55%,
+        rgba(250, 246, 238, 0.18) 100%),
       linear-gradient(180deg,
-        rgba(247, 243, 236, 0.55) 0%,
-        rgba(247, 243, 236, 0.35) 50%,
-        rgba(247, 243, 236, 0.22) 100%);
+        rgba(250, 246, 238, 0.55) 0%,
+        rgba(250, 246, 238, 0.35) 50%,
+        rgba(250, 246, 238, 0.22) 100%);
   }
   .hero-media img {
     object-position: center 36%;
@@ -2251,26 +2405,26 @@ h1, h2, h3, .heading {
   .hero-kicker {
     letter-spacing: 0.32em;
     margin-bottom: 20px;
-    text-shadow: 0 1px 14px rgba(247, 243, 236, 0.95);
+    text-shadow: 0 1px 14px rgba(250, 246, 238, 0.95);
   }
   .hero-content h1 {
     font-size: clamp(34px, 9vw, 44px);
     letter-spacing: 0.16em;
     margin-bottom: 8px;
-    text-shadow: 0 1px 14px rgba(247, 243, 236, 0.95);
+    text-shadow: 0 1px 14px rgba(250, 246, 238, 0.95);
   }
   .hero-tagline {
     font-size: clamp(18px, 4.4vw, 22px);
     margin-bottom: 24px;
-    color: #8A5A24;
-    text-shadow: 0 1px 12px rgba(247, 243, 236, 0.95);
+    color: var(--terra-deep);
+    text-shadow: 0 1px 12px rgba(250, 246, 238, 0.95);
   }
   .hero-content p:not(.hero-kicker):not(.hero-tagline) {
     font-size: 15px;
     line-height: 1.9;
     margin-bottom: 32px;
     max-width: 32ch;
-    text-shadow: 0 1px 14px rgba(247, 243, 236, 0.95);
+    text-shadow: 0 1px 14px rgba(250, 246, 238, 0.95);
   }
   .hero-content .btn {
     margin-bottom: 12px;
@@ -2316,7 +2470,7 @@ h1, h2, h3, .heading {
     z-index: 90;
     align-items: center;
     justify-content: center;
-    background: var(--dust);
+    background: var(--aqua-deep);
     color: #fff;
     font-family: var(--sans);
     font-size: 12px;
@@ -2334,9 +2488,9 @@ h1, h2, h3, .heading {
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    background: #5C7684;
+    background: var(--aqua-deep);
     color: #fff;
-    box-shadow: 0 8px 20px rgba(44, 67, 86, 0.22);
+    box-shadow: 0 8px 20px rgba(44, 74, 80, 0.22);
   }
   .wa-float svg {
     width: 24px;
@@ -2373,10 +2527,13 @@ h1, h2, h3, .heading {
   .welcome-photos figure:nth-child(2) {
     transform: none;
     aspect-ratio: 1;
+    border-radius: 50% 50% 8px 8px / 34% 34% 8px 8px;
   }
-  .welcome-photos figure::after {
+  .welcome-photos figure::after,
+  .welcome-photos figure:nth-child(2)::after {
     inset: 6px;
     opacity: 0.4;
+    border-radius: 50% 50% 6px 6px / 34% 34% 6px 6px;
   }
   .footer-grid {
     grid-template-columns: 1fr;
